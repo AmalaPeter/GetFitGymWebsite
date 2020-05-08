@@ -1,25 +1,9 @@
 const express = require("express");
 const path = require("path"); 
 const app = express();
-var mongoose = require('mongoose');
 const bodyparser = require('body-parser')
-mongoose.connect('mongodb://localhost/registrationgym', {useNewUrlParser: true});
-const port = 8000;
 
-
-
-//define mongoose schema
-
-var registrationSchema = new mongoose.Schema({
-    name: String,
-    gender: String,
-    email: String,
-    phone: String,
-    place: String,
-    more: String
-  });
-
-var registration = mongoose.model('Registration', registrationSchema);
+var port =process.env.PORT || 8000;
 
 
 // EXPRESS SPECIFIC STUFF
@@ -35,32 +19,30 @@ app.get('/', (req, res)=>{
     const params = { }
     res.status(200).render('home.pug', params);
 })
-app.get('/registration', (req, res)=>{ 
-    const params = { }
-    res.status(200).render('registration.pug', params);
-})
 
-app.post('/registration', (req, res)=>{ 
-    var myData = new registration(req.body)
-    myData.save().then(()=>{
-        res.send("This Item has been saved to the database")
-    }).catch(()=>{
-        res.status(400).send("Item is not saved to the database")
-    });
-
-    //res.status(200).render('registration.pug');
-})
 app.get('/about', (req, res)=>{ 
     const params = { }
     res.status(200).render('about.pug', params);
 })
-app.get('/services', (req, res)=>{ 
+app.get('/Experiences', (req, res)=>{ 
     const params = { }
-    res.status(200).render('services.pug', params);
+    res.status(200).render('Experiences.pug', params);
 })
-app.get('/classinfo', (req, res)=>{ 
+app.get('/Projects', (req, res)=>{ 
     const params = { }
-    res.status(200).render('classinfo.pug', params);
+    res.status(200).render('Projects.pug', params);
+})
+app.get('/TechnicalBackground', (req, res)=>{ 
+    const params = { }
+    res.status(200).render('TechnicalBackground.pug', params);
+})
+app.get('/Resume', (req, res)=>{ 
+    const params = { }
+    res.status(200).render('Resume.pug', params);
+})
+app.get('/ContactMe', (req, res)=>{ 
+    const params = { }
+    res.status(200).render('ContactMe.pug', params);
 })
 
 // START THE SERVER
