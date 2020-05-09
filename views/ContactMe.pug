@@ -1,0 +1,24 @@
+extends base.pug
+
+block scripts
+  script(src='/static/index.js')
+
+block style
+    style
+      include ../static/style.css
+      include ../static/styleContactMe.css
+block content
+    div.container
+        h1 Contact Me
+        <a href="https://www.amalapeter9@gmail.com">
+         img(src="./static/gmail.png")
+        </a>
+        <a href="https://www.linkedin.com/in/amala-peter-5947a3176">
+         img(src="./static/linkedin.png")
+        </a>
+        <a href="https://github.com/AmalaPeter">
+         img(src="./static/github.png")
+        </a>
+        <a href="https://www.hackerrank.com/amalapeter9">
+         img(src="./static/hackerrank.jpg")
+        </a>
