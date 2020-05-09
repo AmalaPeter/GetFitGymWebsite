@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const bodyparser = require('body-parser')
 
-var port =process.env.PORT || 8000;
+var port = process.env.PORT || 8000;
 
 
 // EXPRESS SPECIFIC STUFF
